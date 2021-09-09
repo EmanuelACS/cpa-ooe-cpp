@@ -77,7 +77,7 @@ void printArrays(ofstream& out, string name[], int assignTotal[], int testTotal[
 	// Output results
 	for (int index = 0; index < noStudents; index++) {
 		out << left << setw(30) << name[index] << setw(20) << right << assignTotal[index] <<
-			setw(20) << right << testTotal[index] << setw(20) << grade[index] << endl;
+			setw(20) << testTotal[index] << setw(20) << grade[index] << endl;
 	}
 
 	out << "\nNumber of Students " << noStudents << endl;
