@@ -72,7 +72,7 @@ void printArrays(ofstream& out, string name[], int assignTotal[], int testTotal[
 {
 	// Output titles 
 	out << left << setw(30) << "Student Name" << setw(20) << right << "Assignment Total" <<
-		setw(20) << right << "Test Total" << setw(20) << "Grade" << endl << endl;
+		setw(20) << "Test Total" << setw(20) << "Grade" << endl << endl;
 
 	// Output results
 	for (int index = 0; index < noStudents; index++) {
