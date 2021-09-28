@@ -7,14 +7,18 @@ using namespace std;
 
 class Temperature {
     public:
-        void setTemp(double /*degrees*/, char /*type*/); // sets values for member variables
+        void setTemp(int /*degrees*/, char /*type*/); // sets values for member variables
         void printTemp(ostream&) const;
-        double getDegrees() const { return degrees; };
+        int getDegrees() const { return degrees; };
         char getType() const { return type; };
         Temperature(); // default constructor, function prototype, necessary to use class if non-default exists
-        Temperature(double /*initial degrees*/, char /*initial type*/); // non-default constructor
+        Temperature(int /*initial degrees*/, char /*initial type*/); // non-default constructor
+        Temperature(double /*initial degrees*/);
+        Temperature(char /*initial type*/);
+        void setDegrees(int /*newDegrees*/);
+        void setType(char /*newType*/);
     
     private: 
-        double degrees;
+        int degrees;
         char type;
 };

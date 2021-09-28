@@ -3,7 +3,7 @@
 // Implementation file for Temperature Class
 // Emanuel Dobra
 
-void Temperature::setTemp(double newDegrees, char newType) {
+void Temperature::setTemp(int newDegrees, char newType) {
     newType = toupper(newType);
     switch (newType) {
         case 'C': case 'F': case 'K':
@@ -27,11 +27,30 @@ void Temperature::printTemp(ostream& out) const {
 
 Temperature::Temperature() {
     cout << "default constructor called" << endl;
-    degrees = 0.0;
+    cout << "enter temperature and type" << endl;
+    cin >> degrees >> type;
+    degrees = 0;
     type = 'C';
 }
 
-Temperature::Temperature(double initialDegrees, char initialType) {
+Temperature::Temperature(int initialDegrees, char initialType) {
     cout << "non-default constructor called" << endl;
     setTemp(initialDegrees, initialType);
+}
+
+Temperature::Temperature(double initialDegrees) {
+    degrees = static_cast<int>(initialDegrees);
+    type = 'C';
+}
+
+Temperature::Temperature(char initialType) {
+    setTemp(0, initialType);
+}
+
+void Temperature::setDegrees(int newDegrees) {
+    degrees = newDegrees;
+}
+
+void Temperature::setType(char newType) {
+    setTemp(degrees, newType);
 }
