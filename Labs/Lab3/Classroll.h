@@ -1,7 +1,6 @@
 #include <iostream>
-#include <string>
 #include <fstream>
-#include <iomanip>
+#include <string>
 using namespace std;
 /**
  * Name: Emanuel Dobra
@@ -14,7 +13,6 @@ struct StudentRec {
     int testTotal;
     char letterGrade;
 };
-
 
 const int SIZE = 25;
 

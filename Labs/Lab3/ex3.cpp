@@ -1,12 +1,8 @@
 #include "ClassRoll.h"
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <iomanip>
 using namespace std;
 /**
  * Name: Emanuel Dobra
- * Specification file for ClassRoll
+ * Client Code
 */
 
 int main() {

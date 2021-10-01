@@ -1,14 +1,14 @@
-#include "Classroll.h"
+#include "ClassRoll.h"
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <iomanip>
 using namespace std;
 /**
  * Name: Emanuel Dobra
  * Implementation file for ClassRoll
 */
 
+// ClassRoll Constructer implementation
 ClassRoll::ClassRoll(string fileName, int maxStudents) {
     // Input file
 	ifstream fin(fileName);
@@ -22,6 +22,7 @@ ClassRoll::ClassRoll(string fileName, int maxStudents) {
 	int length = 0;
 	for (; length < maxStudents; length++)
 	{
+		// Send data from file to array
 		getline(fin, students[length].studentName);
 		if (fin.eof())
 			break;
@@ -30,4 +31,5 @@ ClassRoll::ClassRoll(string fileName, int maxStudents) {
 		fin >> students[length].letterGrade;
 		fin.ignore(80, '\n');
 	}
+	noStudents = length;
 }
