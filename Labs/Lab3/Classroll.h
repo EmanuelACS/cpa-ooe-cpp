@@ -32,6 +32,6 @@ class ClassRoll {
         int maxStudents;
         int noStudents;
         StudentRec students[SIZE];
-        int searchStudent(string /*studentName*/) const { return studentIndex; } // Returns the index of the student in the students array
+        int searchStudent(string /*studentName*/) const; // Returns the index of the student in the students array
 };
 
