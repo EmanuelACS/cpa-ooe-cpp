@@ -15,6 +15,16 @@ class Time {
         int getMins() const { return mins; }
         int getSeconds() const { return seconds; }
 
+        // Write all of this in one constructor
+        // Time(int /*hrs*/, int /*mins*/, int /*seconds*/);
+        // Time(int /*hrs*/, int /*mins*/);
+        // Time(int /*hrs*/);
+        // Time();
+
+        // Constructor with default params
+        Time(int = 1 /*hrs*/, int = 0 /*mins*/, int = 0 /*seconds*/);
+
+
     private: 
         int hrs, mins, seconds;
-}
+};
