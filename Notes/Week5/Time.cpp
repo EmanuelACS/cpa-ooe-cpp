@@ -5,23 +5,30 @@
 
 void Time::showTime(ostream& out) const {
     out << hrs << ":"
-        << mins << ":"
-        << seconds;
+        << (mins < 10 ? "0" : "") << mins << ":"
+        << (seconds < 10 ? "0" : "") << seconds;
 }
 
 void Time::setTime(int newHrs, int newMins, int newSeconds) {
     // Condesnsed if statements
+    // var = (Condition) (if true ?) (value) (otherwise :) (value)
     hrs = (newHrs > 0 && newHrs <= 12) ? newHrs : 12;
     mins = (newMins > 0 && newMins < 60) ? newMins : 0;
     seconds = (newSeconds > 0 && newSeconds < 60) ? newSeconds : 0;
 }
 
-void Time::setTime(int newHrs, int newMins) {
-    setTime(newHrs, newMins);
-}
-
 Time::Time(int initialHrs, int initialMins, int initialSeconds) {
     setTime(initialHrs, initialMins, initialSeconds);
+}
+
+Time::Time(string fileName) {
+    ifstream fin(fileName);
+    if(!fin.is_open()) {
+        cout << "Failed to open " << fileName << endl;
+        system("pause");
+        exit(-1);
+    }
+    fin >> hrs >> mins >> seconds;
 }
 
 /*

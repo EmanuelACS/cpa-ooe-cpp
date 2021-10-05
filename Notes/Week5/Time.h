@@ -8,8 +8,9 @@ using namespace std;
 
 class Time {
     public:
-        void setTime(int /*hrs*/, int /*mins*/, int /*seconds*/);
-        void setTime(int /*hrs*/, int /*mins*/);
+        void setTime(int /*hrs*/, int /*mins*/, int = 0 /*seconds*/);
+        //not allowed due to now having default seconds above
+        // void setTime(int /*hrs*/, int /*mins*/); 
         void showTime(ostream& /*file/cout*/) const;
         int getHrs() const { return hrs; }
         int getMins() const { return mins; }
@@ -23,6 +24,7 @@ class Time {
 
         // Constructor with default params
         Time(int = 1 /*hrs*/, int = 0 /*mins*/, int = 0 /*seconds*/);
+        Time(string /*inputFile*/);
 
 
     private: 
