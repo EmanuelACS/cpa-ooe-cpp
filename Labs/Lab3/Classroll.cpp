@@ -9,7 +9,7 @@ using namespace std;
 */
 
 // ClassRoll Constructer implementation
-ClassRoll::ClassRoll(string fileName, int maxStudents) {
+ClassRoll::ClassRoll(string fileName, int newMaxStudents) {
     // Input file
 	ifstream fin(fileName);
 	if (!fin.is_open())
@@ -20,7 +20,7 @@ ClassRoll::ClassRoll(string fileName, int maxStudents) {
 	}
 
 	int length = 0;
-	for (; length < maxStudents; length++)
+	for (; length < newMaxStudents; length++)
 	{
 		// Send data from file to array
 		getline(fin, students[length].studentName);
