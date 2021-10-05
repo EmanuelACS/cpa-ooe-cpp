@@ -23,7 +23,7 @@ class ClassRoll {
         string getCourseName() const { return courseName; } // Returns name of the course
         void changeGrade(string /*studentName*/, char /*letterGrade*/); // Change a student's grade
         void writeStudents(ostream&) const; // Write all of the students to an output file or screen 
-        ClassRoll(string /*fileName*/, int /*maxStudents*/);
+        ClassRoll(string /*fileName*/, int /*newMaxStudents*/);
 
     private:
         string courseName;
