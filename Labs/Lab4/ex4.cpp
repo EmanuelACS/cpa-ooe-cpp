@@ -6,6 +6,6 @@ using namespace std;
 */
 
 int main() {
-    ClassRoll studentRecords("student.dat", 10);
-    cout << studentRecords.getNoStudents();
+    ClassRoll studentRecords("student.dat");
+    studentRecords.writeStudents(cout);
 }

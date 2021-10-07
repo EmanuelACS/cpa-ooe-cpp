@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 /**
  * Name: Emanuel Dobra
@@ -39,4 +40,21 @@ ClassRoll::ClassRoll(string fileName, int newMaxStudents) {
 		fin.ignore(80, '\n');
 	}
 	noStudents = length;
+}
+
+// Writes all of the students in the array to a file or a screen
+void ClassRoll::writeStudents(ostream& fout) const {
+	fout << left << setw(30) << "Student Name: " 
+		<< setw(20) << right << "Assign Total"
+		<< setw(20) << "Test Total"
+		<< setw(22) << "Grade\n\n";
+
+	for (int idx = 0; idx < noStudents; idx++) {
+		fout << left << setw(30) << students[idx].studentName
+			<< right << setw(20) << students[idx].assignmentTotal
+			<< setw(20) << students[idx].testTotal
+			<< setw(20) << students[idx].letterGrade << "\n";
+	}
+
+	fout << "\nNumber of Students: " << noStudents << "\n\n";
 }
