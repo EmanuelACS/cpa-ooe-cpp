@@ -11,10 +11,10 @@ using namespace std;
 // ClassRoll Constructer implementation
 ClassRoll::ClassRoll(string fileName, int newMaxStudents) {
 	// Assign and validate max student amount
-	if (newMaxStudents > 0) {
+	if (newMaxStudents > 0 && newMaxStudents <= SIZE) {
 		maxStudents = newMaxStudents;
 	} else {
-		maxStudents = 10;
+		maxStudents = SIZE;
 	}
 	
     // Input file
