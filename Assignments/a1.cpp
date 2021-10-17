@@ -1,3 +1,13 @@
+#include "ClassRoll.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void showCourse() {
+    
+}
+
 int main()
 {
     cout << "ClassRoll object examples for student.data file:" << endl << endl;
@@ -31,12 +41,10 @@ int main()
     bestClass.showGrade("Superman");
     cout << "write to a file \n";
     ofstream fout("sample.dat");
-    if (!fout.is_open())
-    333ass12017 COMP 333 Page 2
-    {
-    cout << "error opening saple.dat file " << endl;
-    system("pause");
-    exit(1);
+    if (!fout.is_open()) {
+        cout << "error opening saple.dat file " << endl;
+        system("pause");
+        exit(1);
     }
     bestClass.writeStudents(fout);
     cout << "\n\ncalling your show course function:";
