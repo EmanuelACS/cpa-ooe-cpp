@@ -49,6 +49,4 @@ int main() {
     // deletes all elements in the array
     // There is no need to delete pointToArrPtr since the memory of arrPtr is already deleted.
     // delete []pointToArrPtr; 
-    
-    
 }
