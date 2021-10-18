@@ -4,6 +4,7 @@
 using namespace std;
 /**
  * Name: Emanuel Dobra
+ * Date: 2021-10-17
  * Specification file for ClassRoll
 */
 
@@ -22,7 +23,7 @@ class ClassRoll {
         int getNoStudents() const { return noStudents; } // Returns the amount of students in array
         string getCourseName() const { return courseName; } // Returns name of the course
         void changeGrade(string /*studentName*/, char /*letterGrade*/); // Change a student's grade
-        void writeStudents(ofstream&) const; // Write all of the students to an output file or screen 
+        void writeStudents(ostream&) const; // Write all of the students to an output file or screen 
         ClassRoll(string /*fileName*/, string /*courseName*/, int=SIZE /*newMaxStudents*/);
 
     private:
