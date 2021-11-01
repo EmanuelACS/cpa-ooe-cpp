@@ -1,14 +1,4 @@
-#include "Drink.h"
+#include "Beverage.h"
 
-//spec file for beverage class
+// implementation file for Beverage class
 
-class Beverage : public Drink {
-    public:
-        Beverage();
-        Beverage(int /*qty*/, string /*typeOfDrink*/, string /*mix*/);
-        string getMix() const { return *mix; };
-        void setMix(string /*newMix*/);
-        void show() const;
-    private: 
-        string* mix;            
-};
