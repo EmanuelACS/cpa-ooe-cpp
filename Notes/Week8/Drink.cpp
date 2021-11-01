@@ -25,3 +25,8 @@ void Drink::setQty(int newQty) {
 void Drink::setTypeOfDrink(string newDrink) {
     *typeOfDrink = newDrink;
 }
+
+void Drink::show() const {
+    cout << "Type of drink is: " << *typeOfDrink << endl;
+    cout << "# of ounces is: " << qty << endl;
+}

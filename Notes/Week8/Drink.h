@@ -11,7 +11,7 @@ class Drink {
         string getTypeOfDrink() const { return *typeOfDrink; }
         void setQty(int /*ounces*/);
         void setTypeOfDrink(string /*type*/); 
-        //void show() const;
+        void show() const;
     private:
         int qty;
         string* typeOfDrink;
