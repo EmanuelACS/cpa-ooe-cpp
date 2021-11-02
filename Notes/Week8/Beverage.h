@@ -9,6 +9,7 @@ class Beverage : public Drink {
         string getMix() const { return *mix; };
         void setMix(string /*newMix*/);
         void show() const;
+        ~Beverage();
     private: 
         string* mix;            
 };

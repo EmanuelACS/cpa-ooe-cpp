@@ -12,6 +12,13 @@ class Drink {
         void setQty(int /*ounces*/);
         void setTypeOfDrink(string /*type*/); 
         void show() const;
+
+        // destructor, cannot be overloaded, only one allowed
+        // automatically called when the object goes out of existance
+        // a default one is generated for us. 
+        ~Drink(); //destructor 
+        // when you call delete() it calls the destructor
+
     private:
         int qty;
         string* typeOfDrink;

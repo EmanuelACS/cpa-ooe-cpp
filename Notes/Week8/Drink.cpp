@@ -30,3 +30,8 @@ void Drink::show() const {
     cout << "Type of drink is: " << *typeOfDrink << endl;
     cout << "# of ounces is: " << qty << endl;
 }
+
+// Destructor
+Drink::~Drink() {
+    cout << "Destructor of drink was called!\n";
+}

@@ -25,3 +25,7 @@ void Beverage::show() const {
     Drink::show();
     cout << "mix is: " << *mix << endl;
 }
+
+Beverage::~Beverage() {
+    cout << "Beverage Destructor was called!\n";
+}
