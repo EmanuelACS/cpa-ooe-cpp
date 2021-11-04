@@ -3,6 +3,8 @@
 #include <cassert>
 using namespace std;
 
+// Emanuel Dobra
+// 2021-11-03
 // spec file for Package class
 
 class Package {

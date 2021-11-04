@@ -1,5 +1,7 @@
 #include "Package.h"
 
+// Emanuel Dobra
+// 2021-11-03
 // sepc file for Letter class
 
 class Letter : public Package {

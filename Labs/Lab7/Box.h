@@ -1,5 +1,7 @@
 #include "Package.h"
 
+// Emanuel Dobra
+// 2021-11-03
 // spec file for Box class
 
 class Box : public Package {
