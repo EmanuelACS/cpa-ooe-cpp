@@ -11,10 +11,11 @@ class Package {
     public:
         Package();
         Package(string /*source*/, string /*destination*/);
+        ~Package();
         double computeShipCost() const { return 0.0; }
         string getSource() const { return *source; }
         string getDestination() const { return *destination; }
-    private:
+    protected:
         string* source;
         string* destination;
 };
