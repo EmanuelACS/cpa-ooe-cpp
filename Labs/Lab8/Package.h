@@ -19,3 +19,23 @@ class Package {
         string* source;
         string* destination;
 };
+
+class Box : public Package {
+    public:
+        Box();
+        Box(int /*weight*/, string /*source*/, string /*destination*/);
+        double computeShipCost() const;
+        int getWeight() const { return weight; }
+    private:
+        int weight;
+};
+
+class Letter : public Package {
+    public:
+        Letter();  
+        Letter(int /*noPages*/, string /*source*/, string /*destination*/);
+        double computeShipCost() const;
+        int getnoPages() { return noPages; }
+    private:
+        int noPages; 
+};
