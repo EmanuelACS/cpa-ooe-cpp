@@ -15,14 +15,17 @@ class Room         //base
         Room(int/*sq ft*/, string/*location*/);
         Room();
         //write the destructor prototype
-        ~Room();
+        virtual ~Room();
         int getsqFt() const { return sqFt; }
         string getlocation() { return *location; }
-        void showInfo(ostream&) const;
+        // virtual: 
+        // allow derived objects to come in here
+        // and treat them as such
+        virtual void showInfo(ostream&) const;
 };
 class Office :public Room   //derived
 {
-    int noWindows;
+    int* noWindows;
     public:
         Office(int/*sq ft*/, int/*windows*/, string/*location*/);
         Office();
