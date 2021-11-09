@@ -99,3 +99,18 @@ void Office::showInfo(ostream& out) const
 }
 
 
+Classroom::Classroom(int newNoDesks, int newSqFt, string newLocation)
+	: Room(newSqFt, newLocation) {
+		cout << "Inside Classroom non-default constructor " << endl;
+		noDesks = new int((newNoDesks>0)?newNoDesks : 1);
+		assert(noDesks);
+}
+
+Classroom :: ~Classroom() {
+	cout << "Inside Classroom destructor" << endl;
+	delete noDesks;
+}
+
+void Classroom::showInfo(ostream& out) {
+	cout << "This is a virtual classroom." << endl;
+}

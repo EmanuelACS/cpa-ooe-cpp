@@ -18,7 +18,7 @@ void show(const Room* roomPtr)
 {
 	cout << "inside show functio " << endl;
 	roomPtr->showInfo(cout);
-	delete roomPtr;
+	//delete roomPtr;
 }
 
 
@@ -35,7 +35,7 @@ void createHeap()
 	cout << endl << endl << "Creating office on the heap" << endl;
 	Office* school = new Office(8, 45, "Ottawa");
 	assert(school);
-	//delete school;
+	delete school;
 }
 
 
@@ -58,7 +58,13 @@ int main()
 	//colinOffice->showInfo(cout);
 	show(colinOffice);
 
+	Classroom *one = new Classroom(4, 3, "Intern");
+	assert(one);
+	show(one);
 
+	cout << "\n\n" << "Creating a classsroom obj on the stack";
+	Classroom two(132, 42, "Check");
+	show(&two); // send address
 
 	system("pause");
 }
