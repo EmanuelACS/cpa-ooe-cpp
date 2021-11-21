@@ -1,62 +1,91 @@
 #include "Package.h"
 
-// have to make destructor also virtual
-// since this is a room obj function
-void show(const Package* cake) {
-    cout << "\n\nInside const show function\n\n";
-    cake->computeShipCost();
-    delete cake; // last step
+// Polymorphic function showing ship cost of any package or derived package class
+void show(const Package * anyPackage) {
+    cout << "Shipping cost: " << anyPackage->computeShipCost() << "\n\n";
 }
 
 int main() {
-    //Package *test1 = new Package();
-    //assert(test1);
-    //Package test2("sourceP", "destP");
-    Box *testB1 = new Box();
-    Box testB2(99, "sourceB", "destB");
-    //Letter *testL1 = new Letter();
-    //Letter testL2(99, "sourceL", "destL");
+    // Packages on the stack test    
+    Package myPackage;
+    Letter myLetter(4, "Home3", "FL");
+    Box myBox(24, "Home2", "NY");    
 
-    //cout << test1->getSource() << endl;
-    //cout << test2.getSource() << endl;
-    //cout << test1->getDestination() << endl;
-    //cout << test2.getDestination() << endl;
-    cout << testB1->computeShipCost() << endl;
-    cout << testB2.computeShipCost() << endl;
-    //cout << testL1->computeShipCost() << endl;
-    //cout << testL2.computeShipCost() << endl;
-
-    //show(test1);
-    //show(&test2);
-    //show(testB1);
-    //show(&testB2);
-    //show(testL1);
-    //show(&testL2);
+    cout << "\nPkg Source: " << myPackage.getSource() << endl
+        << "Pkg Destination: " << myPackage.getDestination() << endl;
+    show(&myPackage);
     
-    // Package myPackage("Home", "Work");
-    // Letter myLetter(4, "Home3", "FL");
-    // Box myBox(24, "Home2", "NY");    
+    cout << "Letter Destination: " << myLetter.getDestination() << endl
+        << "Letter Source: " << myLetter.getSource() << endl
+        << "Letter #Pages: " << myLetter.getnoPages() << endl;
+    show(&myLetter);
 
-    // cout << "Pkg Source: " << myPackage.getSource() << endl
-    //     << "Pkg Destination: " << myPackage.getDestination()
-    //     << endl;
+    cout << "Box Destination: " << myBox.getDestination() << endl
+        << "Box Source: " << myBox.getSource() << endl
+        << "Box Weight: " << myBox.getWeight() << endl;
+    show(&myBox);
+
+    // Packages on the heap test
+    Package *myPackage2 = new Package("SKT", "ALB");    
+    assert(myPackage2);
+    Letter *myLetter2 = new Letter();                       
+    assert(myLetter2);
+    Box *myBox2 = new Box();               
+    assert(myBox2);
     
-    // cout << "Letter Pages: " << myLetter.getnoPages() << endl
-    //     << "Letter Source: " << myLetter.getSource() << endl
-    //     << "Letter Destination: " << myLetter.getDestination()
-    //     << endl;
-
-    // cout << "Box Weight: " << myBox.getWeight() << endl
-    //     << "Box Source: " << myBox.getSource() << endl
-    //     << "Box Destination: " << myBox.getDestination()
-    //     << endl;
-
-    // Package *myPackage2 = new Package("@home", "@work");     assert(myPackage2);
-    // Letter *myLetter2 = new Letter();    assert(myLetter2);
-    // Box *myBox2 = new Box(17, "home2", "NY");    assert(myBox2);
+    cout << "\nPkg Source: " << myPackage2->getSource() << endl
+        << "Pkg Destination: " << myPackage2->getDestination() << endl;
+    show(myPackage2);
     
+    cout << "Letter Destination: " << myLetter2->getDestination() << endl
+        << "Letter Pages: " << myLetter2->getnoPages() << endl
+        << "Letter Source: " << myLetter2->getSource() << endl;
+    show(myLetter2);
 
-    // cout << "\nDefault package cost: " << myPackage2->computeShipCost() << endl;
-    // cout << "Computing letter cost: " << myLetter2->computeShipCost() << endl;
-    // cout << "Computing  box cost: " << myBox2->computeShipCost() << endl;
+    cout << "Box Destination: " << myBox2->getDestination() << endl
+        << "Box Source: " << myBox2->getSource() << endl
+        << "Box Weight: " << myBox2->getWeight() << endl;
+    show(myBox2);
+    
+    // Deallocate memory
+    delete myPackage2, myLetter2, myBox2;
 }
+/* Output
+Enter package source: NY
+Enter package destination: FL
+
+Pkg Source: NY        
+Pkg Destination: FL   
+Shipping cost: 0      
+
+Letter Destination: FL
+Letter Source: Home3  
+Letter #Pages: 4      
+Shipping cost: 0.45   
+
+Box Destination: NY   
+Box Source: Home2     
+Box Weight: 24        
+Shipping cost: 4.75   
+
+Enter package source: RS
+Enter package destination: PR 
+Enter total pages letter has: 27
+Enter package source: QE
+Enter package destination: SE
+Enter weight: 12
+
+Pkg Source: SKT
+Pkg Destination: ALB
+Shipping cost: 0
+
+Letter Destination: PR
+Letter Pages: 27
+Letter Source: RS
+Shipping cost: 1.35
+
+Box Destination: SE
+Box Source: QE
+Box Weight: 12
+Shipping cost: 2.75
+*/

@@ -10,7 +10,7 @@ using namespace std;
 class Package {
     public:
         Package(string /*source*/, string /*destination*/);
-        ~Package();
+        virtual ~Package();
         Package();
         virtual double computeShipCost() const { return 0.0; }
         string getSource() const { return *source; }
