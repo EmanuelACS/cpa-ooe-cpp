@@ -1,5 +1,9 @@
 #include "Package.h"
 
+// Emanuel Dobra
+// 2021-11-21
+// Client Code
+
 // Polymorphic function showing ship cost of any package or derived package class
 void show(const Package * anyPackage) {
     cout << "Shipping cost: " << anyPackage->computeShipCost() << "\n\n";
