@@ -9,14 +9,11 @@ void show(const Package* cake) {
 }
 
 int main() {
-    Letter *testL1 = new Letter();
-    Letter testL2(99, "sourceL", "destL");
-
     //Package *test1 = new Package();
     //assert(test1);
     //Package test2("sourceP", "destP");
-    //Box *testB1 = new Box();
-    //Box testB2(99, "sourceB", "destB");
+    Box *testB1 = new Box();
+    Box testB2(99, "sourceB", "destB");
     //Letter *testL1 = new Letter();
     //Letter testL2(99, "sourceL", "destL");
 
@@ -24,10 +21,10 @@ int main() {
     //cout << test2.getSource() << endl;
     //cout << test1->getDestination() << endl;
     //cout << test2.getDestination() << endl;
-    //cout << testB1->computeShipCost() << endl;
-    //cout << testB2.computeShipCost() << endl;
-    cout << testL1->computeShipCost() << endl;
-    cout << testL2.computeShipCost() << endl;
+    cout << testB1->computeShipCost() << endl;
+    cout << testB2.computeShipCost() << endl;
+    //cout << testL1->computeShipCost() << endl;
+    //cout << testL2.computeShipCost() << endl;
 
     //show(test1);
     //show(&test2);

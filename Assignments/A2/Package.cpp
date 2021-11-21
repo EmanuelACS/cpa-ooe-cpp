@@ -49,7 +49,7 @@ Letter::Letter() {
 Box::Box() {
     cout << "Enter weight: ";
     cin >> weight;
-    while (cin.fail() || weight < 0) {
+    while (cin.fail() || weight < 1) {
         cin.clear();
         cin.ignore(80, '\n');
         cout << "Invalid input, try again: ";\
