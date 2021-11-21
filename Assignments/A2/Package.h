@@ -9,9 +9,9 @@ using namespace std;
 
 class Package {
     public:
-        Package();
         Package(string /*source*/, string /*destination*/);
         ~Package();
+        Package();
         virtual double computeShipCost() const { return 0.0; }
         string getSource() const { return *source; }
         string getDestination() const { return *destination; }
@@ -22,8 +22,8 @@ class Package {
 
 class Box : public Package {
     public:
-        Box();
         Box(int /*weight*/, string /*source*/, string /*destination*/);
+        Box();
         double computeShipCost() const;
         int getWeight() const { return weight; }
     private:
@@ -32,8 +32,8 @@ class Box : public Package {
 
 class Letter : public Package {
     public:
-        Letter();  
         Letter(int /*noPages*/, string /*source*/, string /*destination*/);
+        Letter();  
         double computeShipCost() const;
         int getnoPages() { return noPages; }
     private:

@@ -2,35 +2,84 @@
 #include <iostream>
 
 // Impl file for Package class
+// Emanuel Dobra
 
+// Package default constructor, asks user to input data
 Package::Package() {
-    cout << "Enter source";
+    // Allocate memory on the heap 
+    source = new string();
+    assert(source);
+    destination = new string();
+    assert(destination);
+
+    // Get valid source input
+    cout << "Enter package source: ";
     getline(cin, *source);
-    cout << "Enter destination";
+    while(*source == "") {
+        cout << "Invalid input, try again: ";
+        getline(cin, *source);
+    }
+
+    // Get valid destination input
+    cout << "Enter package destination: ";
     getline(cin, *destination);
+    while(*destination == "") {
+        cout << "Invalid input, try again: ";
+        getline(cin, *destination);
+    }
 }
 
+// Letter default constructor, asks user to input data
+Letter::Letter() {
+    // Get valid noPages input
+    cout << "Enter total pages letter has: ";
+    cin >> noPages;
+    while (cin.fail() || noPages < 1) {
+        cin.clear();
+        cin.ignore(80, '\n');
+        cout << "Invalid input, try again: ";
+        cin >> noPages;
+    }
+    cin.clear();
+    cin.ignore(80, '\n');
+}
+
+// Box default constructor, asks user to input data
+Box::Box() {
+    cout << "Enter weight: ";
+    cin >> weight;
+    while (cin.fail() || weight < 0) {
+        cin.clear();
+        cin.ignore(80, '\n');
+        cout << "Invalid input, try again: ";\
+        cin >> weight;
+    }
+    cin.clear();
+    cin.ignore(80, '\n');
+}
+
+// Non-default Package constructor, takes in source and destination params 
 Package::Package(string newSource, string newDestination) {
-    source = (!newSource.empty()) ? new string(newSource) 
-        : new string("NO NAME");
+    // Allocate memory on the heap and store needed data 
+    source = newSource.empty() ? new string("Invalid Source")
+        :new string(newSource);
     assert(source);
-    destination = (!newDestination.empty()) ? new string(newDestination) 
-        : new string("NO NAME");
+    destination = newDestination.empty() ? new string("Invalid Destination") 
+        : new string(newDestination);
     assert(destination);
 }
 
-Package::~Package() {
-    delete source, destination;
-}
-
+// Non-default Letter constructor, takes in source, destination and noPages params 
 Letter::Letter(int newNoPages, string newSource, string newDestination) : Package(newSource, newDestination) {
-    noPages = (newNoPages > 0) ? newNoPages : 0;
+    noPages = newNoPages < 0 ? 0 : newNoPages;
 }
 
+// Non-default Box constructor, takes in source, destination and weight params 
 Box::Box(int newWeight, string newSource, string newDestination) : Package(newSource, newDestination) {
-    weight = (newWeight > 0) ? newWeight : 0;
+    weight = newWeight < 0 ? 0 : newWeight;
 }
 
+// Computes ship cost for letters based on noPages
 double Letter::computeShipCost() const {
     double shipCost = 0;
     if (noPages > 0 && noPages < 6) {
@@ -45,6 +94,7 @@ double Letter::computeShipCost() const {
     return shipCost;
 }
 
+// Computes ship cost for Boxes based on weight
 double Box::computeShipCost() const {
     double shipCost = 0;
     if (weight > 0 && weight < 5) {
@@ -55,4 +105,9 @@ double Box::computeShipCost() const {
         shipCost = 4.75;
     }
     return shipCost;
+}
+
+// Deallocate memory used
+Package::~Package() {
+    delete source, destination;
 }
