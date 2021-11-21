@@ -5,7 +5,7 @@ using namespace std;
 
 // Emanuel Dobra
 // 2021-11-21
-// spec file for Package class
+// Spec file for Package class
 
 class Package {
     public:
