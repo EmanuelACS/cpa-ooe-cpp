@@ -1,8 +1,9 @@
 #include "Package.h"
 #include <iostream>
 
-// Impl file for Package class
 // Emanuel Dobra
+// 2021-11-21
+// Impl file for Package class
 
 // Package default constructor, asks user to input data
 Package::Package() {
