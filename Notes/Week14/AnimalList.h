@@ -22,7 +22,8 @@ public:
 	void showList(ostream& /*output*/) const;
 	int countSpaceStations() const;
 	SpaceStation* findAnimal(string /*animal*/) const;
-	void addMoreAnimals(string /*animal*/, int /*newqty*/);
+	void insertOrAddAnimals(string /*animal*/, int /*newqty*/);
+	void removeAnimal(string /*animal*/)
 
 private:
 	SpaceStation* firstPtr;

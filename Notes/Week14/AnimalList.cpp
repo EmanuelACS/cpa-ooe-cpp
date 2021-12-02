@@ -133,23 +133,58 @@ SpaceStation* AnimalList::findAnimal(string type) const
 }
 
 /*
-adds more animals to a node
+adds a spacestation to the end of our list or add animals to an existing node node
 
 psuedocode
 1. create a walker spacestation ptr and point to firstPtr
-2. walk through the linked list until you find the spacestation that contains the animal
+2. create a walker spacestation, should be 1 node behind walker always
+3. walk through the linked list until you find the spacestation that contains the animal
 3. add the newQty to walker qty.
-
-
+4. if animal type is never found then walker would be equal null
+	a. builde spacestation
+	b. stalker point to the new spacestation
 */
-void AnimalList::addMoreAnimals(string type, int newQty)
+void AnimalList::insertOrAddAnimals(string type, int newQty)
 {
-	SpaceStation* walker = firstPtr;
+	SpaceStation* walker = firstPtr, *stalker = NULL;
 	while (walker != NULL)
 	{
-		if (walker->animal == type)
+		if (walker->animal == type) {
 			walker->qty += newQty;
-
+			break;
+		}
+		stalker = walker;
 		walker = walker->link;
 	}
+	if (walker==NULL) { // we never found animal
+		SpaceStation* builder = new SpaceStation;
+		assert(builder);
+		builder->animal=type;
+		builder->qty=newQty;
+		builder->link = NULL;
+		if (stalker != NULL) {
+			stalker->link = builder;
+		} else {
+			firstPtr = builder;
+		}
+	}
+}
+
+/* Remove an animal, 4 diff scenarios:
+ - empty list
+ - node not found
+ - delete first node 
+ - delete anywhere else
+CODE:
+2. create a wlaker and point it at firstptr
+3. create a stalker and point it NULL
+4. walk the walker through the list looking for animal type
+	if animal type if found break out of while loop
+5. if walker is null, we never found animal, tell user,
+6. if we found animal type
+	a. assign stalker link to walker link
+	b. delete walker 
+*/
+void AnimalList::removeAnimal(string type) {
+
 }

@@ -9,7 +9,10 @@ int main()
 	ptr->addAnimalFirst("cat", 9);
 	ptr->addAnimalFirst("Lemur", 14);
 	ptr->addAnimalEnd("Raccoon", 47);
-	ptr->addMoreAnimals("cat", 5);
+	ptr->insertOrAddAnimals("cat", 5);
+	ptr->insertOrAddAnimals("unicorn", 1);
+	ptr->insertOrAddAnimals("Lemur", 2);
+	//ptr->addMoreAnimals("cat", 5);
 	ptr->showList(cout);
 	cout << "number of space stations is " << ptr->countSpaceStations() << endl;
 	SpaceStation* findPtr = ptr->findAnimal("dog");
