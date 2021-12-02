@@ -12,7 +12,8 @@ struct SpaceStation {
 class AnimalList {
     public:
         AnimalList();
-
+        void addAnimalFirst(string /*animal*/, int /*qty*/);
+        void showList(ostream& /*output*/) const;
 
     private:
         SpaceStation* firstPtr;
