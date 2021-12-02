@@ -23,7 +23,7 @@ public:
 	int countSpaceStations() const;
 	SpaceStation* findAnimal(string /*animal*/) const;
 	void insertOrAddAnimals(string /*animal*/, int /*newqty*/);
-	void removeAnimal(string /*animal*/)
+	void removeAnimal(string /*animal*/);
 
 private:
 	SpaceStation* firstPtr;
