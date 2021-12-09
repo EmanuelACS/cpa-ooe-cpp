@@ -186,5 +186,26 @@ CODE:
 	b. delete walker 
 */
 void AnimalList::removeAnimal(string type) {
-
+	SpaceStation* walker = firstPtr;
+	SpaceStation* stalker = NULL;
+	while (walker != NULL) {
+		if (walker->animal == type) {
+			break;
+		}
+		stalker = walker;
+		walker = walker->link;
+	}
+	if (walker == NULL) { // never found animal
+		cout << "Animal not found\n";  
+	} else if(stalker == NULL) {
+		firstPtr = walker->link;
+	} else {
+		stalker->link = walker->link;
+		delete walker;
+		cout << "Animal removed" << endl;
+	}
 }
+
+/*
+Delete all nodes in the linked list (desctructor)
+*/
