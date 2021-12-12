@@ -18,3 +18,7 @@ void Date::showDate(ostream& out) const {
         << (day < 10 ? "0" : "") << day << "/"
         << year;
 } 
+
+void Date::operator+=(int newDay) {
+    day += ((day + newDay) < 32) ? newDay : 0; 
+}
