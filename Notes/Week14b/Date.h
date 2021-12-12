@@ -20,4 +20,7 @@ class Date {
         // Friend functions allow us to allow the client
         // to create functions which can access private or protected members
         friend void printDateFriend(const Date& /*Date object*/);
+        friend bool operator==(const Date& /*left*/, const Date& /*right*/);
+        friend ostream& operator<<(ostream& /*output stream*/, const Date&);
+        friend istream& operator>>(istream& /*input stream*/, Date&);
 };
